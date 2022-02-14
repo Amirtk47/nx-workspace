@@ -1,0 +1,43 @@
+{
+  "root": "libs/hello-lib",
+  "sourceRoot": "libs/hello-lib/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/hello-lib",
+        "tsConfig": "libs/hello-lib/tsconfig.lib.json",
+        "project": "libs/hello-lib/package.json",
+        "entryFile": "libs/hello-lib/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/hello-lib/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/hello-lib/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/hello-lib"],
+      "options": {
+        "jestConfig": "libs/hello-lib/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

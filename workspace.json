@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "frontapp": "apps/frontapp",
-    "frontapp-e2e": "apps/frontapp-e2e"
+    "frontapp-e2e": "apps/frontapp-e2e",
+    "hello-lib": "libs/hello-lib"
   }
 }
